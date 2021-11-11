@@ -1,30 +1,20 @@
-function calcular(calcInss){
 
-      var vencimentos = document.calcInss.vencimentos.value; 
-
-        if (vencimentos &lt;= 1693.72){
-   
-          var desconto = parseFloat(8 * vencimentos) /100;
-   
-      }else{
-        if(vencimentos &lt;= 2822.91){
-          var desconto = parseFloat(9 * vencimentos) /100;
-
-      }else{
-        if(vencimentos &lt;= 5645.80){
-          var desconto = parseFloat(11 * vencimentos) /100;
-      }
-      else{
-        if(vencimentos &gt; 5645.80){
-          var desconto = 621.04;
-          }
-      }
-      }
-    }
+function calcular() {
+  var comissao = (parseFloat($("#valorPorcentagem").val())/100) * parseFloat($("#valor_vendedor").val());
+  $("#comissao").val(comissao);
+}
 
 
-    document.calcInss.desconto.value = "R$ " + desconto;
-   
-  }
-        
-      
+/* Adiciono Plano */
+var AddTableRow = function(el) {
+        var tbody = $(el).closest('table').find('tbody');
+        var row = tbody.find('tr:last').clone();
+        var name = row.find('.calcular').attr('name');
+        var index = parseInt(name.match(/usuarios\[(\d+)\]\[comissao_vendedor\]/)[1], 10) + 1;
+        row.find('[name^="usuarios["]').each(function() {
+            if (this.name) {
+                this.name = this.name.replace(/^usuarios\[\d+\]/, "usuarios[" + index + "]");
+            }
+        });
+        tbody.append(row);
+    };
