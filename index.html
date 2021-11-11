@@ -1,0 +1,19 @@
+<form name="calcInss">
+          <fieldset>
+            <legend>Calculos de Desconto INSS</legend>
+
+            <label>Preencher Somente o  Primeiro Campo</label><br>
+            <input type="number" name="vencimentos" id="vencimentos" placeholder="Total de Vencimentos: R$ 0000.00" required="Preencha este Campo" oninput="check(this)"><br><br>
+      
+            <p class="ins">Descontos de INSS é de 8% quando o total a receber for até R$ 1693.72<br>
+            De R$ 1.693,73 a R$ 2.822,90  o desconto é de 9% <br><br>De R$ 2.822,91 a R$ 5.645,80   11% <br><br>Acima de R$ 5.645,80 Valor é fixo de R$ 621,04 tendo como base o total de Vencimentos, Salario, horas extras etc.</p><br><br>
+      
+            <label>Valor do Desconto</label><br>
+            <input type="text" name="desconto" id="desconto" placeholder="Não Preencher"><br><br>
+
+            <input type="button" value="Calcular" class="botao" onclick="calcular(document.calcInss.value)">
+
+            <input type="reset" name="limpar" value="Limpar" class="limpar"><br><br><br><br><br>
+   
+          </fieldset>
+        </form><br>
